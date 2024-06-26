@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-this is pagination function
+this is base model 
 """
 from base_caching import BaseCaching
 
@@ -14,7 +14,7 @@ class BasicCache(BaseCaching):
         """
         to add cash items
         """
-        if not key or item:
+        if not key or not item:
             return
         self.cache_data[key] = item
 
