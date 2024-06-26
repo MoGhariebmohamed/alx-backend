@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-this is base model 
+this is base model
 """
 from base_caching import BaseCaching
 
