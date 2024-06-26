@@ -23,5 +23,5 @@ class BasicCache(BaseCaching):
         to get the cash content
         """
         if not key:
-            return
+            return None
         return self.cache_data.get(key, None)
