@@ -3,7 +3,7 @@
 this is flask configuration
 """
 from flask_babel import Babel
-from flask import Flask, render_template, request, g
+from flask import Flask, render_template, request
 
 
 users = {
@@ -27,13 +27,12 @@ app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
-
 def get_user():
     """
-    Returns a user dictionary or None if ID value
+    Returns a user dictionary or None if ID value 
     """
     user_id = request.args('login_as', None)
-    if user_id is not None and int(user_id) in users.keys():
+    if user_idid is not None and int(user_id) in users.keys():
         return users.get(int(user_id))
     return None
 
