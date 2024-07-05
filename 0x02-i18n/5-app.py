@@ -32,7 +32,7 @@ def get_user():
     """
     Returns a user dictionary or None if ID value
     """
-    user_id = request.args('login_as', None)
+    user_id = request.args.get('login_as', None)
     if user_id is not None and int(user_id) in users.keys():
         return users.get(int(user_id))
     return None
