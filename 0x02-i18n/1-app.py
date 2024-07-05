@@ -10,7 +10,7 @@ class Config(object):
     """
     to configrate the babel app
     """
-    LANGAUGES = ["en", "fr"]
+    LANGUAGES = ["en", "fr"]
     BABEL_DEFAULT_LOCAL = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
