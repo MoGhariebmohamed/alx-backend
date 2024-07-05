@@ -10,14 +10,21 @@ class Config(object):
     """
     to configrate the babel app
     """
-    LANGAUGES =["en", "fr"]
-    BABEL_DEFAULT_LOCAL = "en"
+    LANGUAGES =["en", "fr"]
+    BABEL_DEFAULT_LOCALE = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 app = Flask(__name__)
 app.config.from_object(Config)
 babel = Babel(app)
 
+
+@babel.localeselector
+def get_locale():
+    """
+    to get and detrmine the locator
+    """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 @app.route('/', strict_slashes=False)
 def index() -> str:
