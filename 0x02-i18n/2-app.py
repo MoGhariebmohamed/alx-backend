@@ -10,10 +10,9 @@ class Config(object):
     """
     to configrate the babel app
     """
-    LANGAUGES = ["en", "fr"]
+    LANGAUGES =["en", "fr"]
     BABEL_DEFAULT_LOCAL = "en"
     BABEL_DEFAULT_TIMEZONE = "UTC"
-
 
 app = Flask(__name__)
 app.config.from_object(Config)
