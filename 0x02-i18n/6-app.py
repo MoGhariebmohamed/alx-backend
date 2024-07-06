@@ -29,12 +29,12 @@ users = {
 }
 
 
-def get_user():
+def get_user() -> Union[Dict, None]:
     """
     Returns a user dictionary or None if ID value 
     """
     user_id = request.args('login_as', None)
-    if user_idid is not None and int(user_id) in users.keys():
+    if user_id and int(user_id) in users.keys():
         return users.get(int(user_id))
     return None
 
@@ -54,6 +54,13 @@ def get_locale():
     to get and detrmine the locator
     """
     locator = request.args.get('locale')
+    if locator in app.config['LANGUAGES']:
+        return locator
+    if g.user:
+        locator = g.user.get('locale')
+        if locator and locator in app.config['LANGUAGES']:
+            return locator
+    locator = request.headers.get('locale', None)
     if locator in app.config['LANGUAGES']:
         return locator
     return request.accept_languages.best_match(app.config['LANGUAGES'])
